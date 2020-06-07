@@ -123,11 +123,11 @@ def trip_duration_stats(df):
 
     # display total travel time
     total_duration = df['Trip Duration'].sum()
-    days = int(total_duration//86400)
-    hrs = int((total_duration % 86400)//3600)
-    mins = int(((total_duration % 86400) % 3600)//60)
-    sec = int(((total_duration % 86400) % 3600) // 60)
-    print('Total travel time \t: {} days  {} hrs  {} mins  {} sec'.format(days, hrs, mins, sec))
+    dd = int(total_duration//86400)
+    hh = int((total_duration % 86400)//3600)
+    mm = int(((total_duration % 86400) % 3600)//60)
+    ss = int(((total_duration % 86400) % 3600) // 60)
+    print('Total travel time \t: {} days  {} hrs  {} mins  {} sec'.format(dd, hh, mm, ss))
 
     # display mean travel time
     mean_duration = df['Trip Duration'].mean()
