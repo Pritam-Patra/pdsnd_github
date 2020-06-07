@@ -165,6 +165,32 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('\n'+'x========='*5 + 'x\n')
 
+
+def raw_data(df):
+    """Displays first 5 lines of Raw Data."""
+    
+    see_data = input("\nDo you want to see first 5 lines of raw data? Type 'yes' to view first 5 lines : ").lower()
+    if see_data == 'yes':
+        print('\n'+'=========='*11 + '=')
+        print(' '*50 + 'RAW DATA...')
+        print('=========='*11 + '=\n')
+        start = 0
+        end = 5
+        print(df[start : end])
+        start = end
+        end += 5
+        while True:   
+            see_data2 = input("\nDo you want to see the next 5 lines? Type 'yes' or 'no' : ").lower()
+            if see_data2 == 'yes':
+                print(df[start : end])
+                start = end
+                end += 5
+            elif see_data2 == 'no':
+                see_data2 = 'no'
+                break
+            else:
+                print("\nWRONG INPUT!\nPlease type either 'yes' or 'no' only!")
+                
         
 def main():
     while True:
@@ -174,6 +200,8 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+
+        raw_data(df)
 
         restart = input("\nWould you like to restart? Type 'yes' or 'y' to restart.\n")
         if restart.lower() != 'yes' or restart.lower() != 'y':
